@@ -5,17 +5,9 @@ html {
 body {
     background: url('/media/cafecapital-homempage-background.png') no-repeat center center fixed;
     background-size: cover;
-    height: calc(100vh - 164px);
+    height: calc(100vh - 120px);
     color: #666666;
     font-family: 'Lato', sans-serif;
-}
-
-.icon {
-    align-items: center;
-    display: inline-flex;
-    justify-content: center;
-    height: 1.5rem;
-    width: 1.5rem;
 }
 
 .logo-font {
@@ -51,12 +43,71 @@ body {
     color: #2ECC71;
 }
 
+#topnav {
+    height: 80px;
+}
+
+.header-container {
+    height: 80px;
+}
+
 .text-black {
     color: #000 !important;
+    vertical-align: sub;
 }
 
 .border-black {
     border: 1px solid black !important;
+}
+
+.sidenav {
+    height: 100%;
+    width: 0;
+    position: fixed;
+    z-index: 2;
+    top: 0;
+    left: 0;
+    background-color: #111;
+    overflow-x: hidden;
+    padding-top: 100px;
+    transition: 0.1s;
+}
+
+.sidenavoverlay {
+    display: none;
+    height: 100%;
+    width: 100%;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    background-color: rgba(0,0,0,0.4);
+}
+
+.sidenav a {
+    padding: 8px 8px 8px 32px;
+    text-decoration: none;
+    font-size: 16px;
+    color: #f1f1f1;
+    display: block;
+}
+
+.sidenav .subcategory {
+    padding: 8px 8px 8px 48px;
+}
+  
+.sidenav a:hover {
+    color: #2ECC71;
+}
+  
+.sidenav hr {
+    background-color: #23272b;
+    margin-left: 32px;
+    margin-right: 32px;
+}
+
+.nav-button {
+    margin: 8px;
 }
 
 /* ----- Media Queries ----- */
@@ -79,6 +130,11 @@ body {
       }
   
       .header-container {
-          padding-top: 164px;
+          padding-top: 50px;
       }
+
+      #topnav {
+        width: 80%;
+        margin: 0 auto;
+    }
   }
