@@ -110,6 +110,61 @@ body {
     margin: 8px;
 }
 
+.overlay {
+    height: 100%;
+    width: 100%;
+    top: 0;
+    left:0;
+    position: fixed;
+    background: white;
+    z-index: -1;
+}
+
+.menu-image {
+    width: 150px;
+    height: 150px;
+    object-fit: fill;
+    float: right;
+}
+
+.menu-name {
+    position: absolute;
+    top: 0;
+    left: 0;
+    margin-top: 15px;
+    margin-left: 15px;
+}
+
+.menu-price {
+    position: absolute;
+    bottom: 0;
+    left:0;
+    margin-bottom: 15px;
+    margin-left: 15px;
+}
+
+.menu-description {
+    position: absolute;
+    top: 45px;
+    left: 0;
+    margin-left: 15px;
+    font-size: 12px;
+    max-width: 240px;
+}
+
+.box {
+    border: solid 1px #bdbdbd;
+    padding-left: 0;
+    padding-right: 0;
+    margin-right: 15px;
+    max-width: 450px;
+}
+
+.item-container {
+    max-width: 1500px;
+    margin: 0 auto;
+}
+
 /* ----- Media Queries ----- */
 
 /* Slightly larger container on xl screens */
