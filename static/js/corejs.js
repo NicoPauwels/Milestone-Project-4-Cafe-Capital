@@ -7,5 +7,3 @@ function closeNav() {
   document.getElementById("mysidenav").style.width = "0";
   document.getElementById("sidenavoverlay").style.display = "none";
 }
-
-
