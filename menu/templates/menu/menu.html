@@ -13,299 +13,354 @@
 {% block content %}
 <div class="overlay"></div>
 <div class="container-fluid">
-    <div class="row">
+    <div class="row menu-navigation">
         <div class="col text-center mt-3">
             <h2 class="logo-font text-black">Menu</h2>
             <hr class="mb-1">
+            <div class="row mt-1 mb-2" id="menu-link-container">
+                <a href="#suggestions" class="text-black menu-link">Suggestions</a>
+                <a href="#sharings" class="text-black menu-link">Sharings</a>
+                <a href="#forthekids" class="text-black menu-link">For The Kids</a>
+                <a href="#bistro" class="text-black menu-link">Bistro</a>
+                <a href="#brunch" class="text-black menu-link">Brunch</a>
+                <a href="#dessert" class="text-black menu-link">Dessert</a>
+                <a href="#draftbeer" class="text-black menu-link">Beer</a>
+                <a href="#aperitivo" class="text-black menu-link">Aperitivo</a>
+                <a href="#spirits" class="text-black menu-link">Spirits</a>
+                <a href="#premiumcocktails" class="text-black menu-link">Premium Cocktails</a>
+                <a href="#hotdrinks" class="text-black menu-link">Hot Drinks</a>
+                <a href="#colddrinks" class="text-black menu-link">Cold Drinks</a>
+                <a href="#digestive" class="text-black menu-link">Digestive</a>
+                <a href="#bubbles" class="text-black menu-link">Bubbles</a>
+                <a href="#wine" class="text-black menu-link">Wine</a>
+            </div>
+            <hr class="mt-1">
         </div>
     </div>
     <div class="row">
         <div class="item-container col-12">
-            <div class="row mt-1 mb-2"></div>
             <div class="row">
                 <div class="col-12">
                     <div class="row mt-1 mb-2">
-                        <h2 class="text-black">Suggestions</h2>
+                        <h2 class="menu-title text-black" id="suggestions">Suggestions</h2>
                     </div>
                     <div class="row mt-1 mb-2">
                         {% for item in suggestions %}
-                        <div class="col-12 col-md-4 mb-4 box">
+                        <div class="col-12 col-md-4 mb-4">
+                            <a href="#" class="item-link">
                             <div class="menu-item">
                                 <p class="menu-name text-black">{{ item.name }}</p>
                                 <p class="menu-description">{{ item.description }}</p>
                                 <p class="menu-price text-black">{{ item.price }} EUR</p>
                                 <img class="menu-image" src="{{ item.image.url }}" alt="{{ item.name }}">
                             </div>
+                            </a>
                         </div>
                         {% endfor %}
                     </div>
                     <div class="row mt-2 mb-2">
-                        <h2 class="text-black">Sharings</h2>
+                        <h2 class="menu-title text-black" id="sharings">Sharings</h2>
                     </div>
                     <div class="row mt-1 mb-2">
                         {% for item in sharings %}
-                        <div class="col-12 col-md-4 mb-4 box">
+                        <div class="col-12 col-md-4 mb-4">
+                            <a href="#" class="item-link">
                             <div class="menu-item">
                                 <p class="menu-name text-black">{{ item.name }}</p>
                                 <p class="menu-description">{{ item.description }}</p>
                                 <p class="menu-price text-black">{{ item.price }} EUR</p>
                                 <img class="menu-image" src="{{ item.image.url }}" alt="{{ item.name }}">
                             </div>
+                            </a>
                         </div>
                         {% endfor %}
                     </div>
                     <div class="row mt-2 mb-2">
-                        <h2 class="text-black">For The Kids</h2>
+                        <h2 class="menu-title text-black" id="forthekids">For The Kids</h2>
                     </div>
                     <div class="row mt-1 mb-2">
                         {% for item in for_the_kids %}
-                        <div class="col-12 col-md-4 mb-4 box">
+                        <div class="col-12 col-md-4 mb-4">
+                            <a href="#" class="item-link">
                             <div class="menu-item">
                                 <p class="menu-name text-black">{{ item.name }}</p>
                                 <p class="menu-description">{{ item.description }}</p>
                                 <p class="menu-price text-black">{{ item.price }} EUR</p>
                                 <img class="menu-image" src="{{ item.image.url }}" alt="{{ item.name }}">
                             </div>
+                            </a>
                         </div>
                         {% endfor %}
                     </div>
                     <div class="row mt-2 mb-2">
-                        <h2 class="text-black">Bistro</h2>
+                        <h2 class="menu-title text-black" id="bistro">Bistro</h2>
                     </div>
                     <div class="row mt-1 mb-2">
                         {% for item in bistro %}
-                        <div class="col-12 col-md-4 mb-4 box">
+                        <div class="col-12 col-md-4 mb-4">
+                            <a href="#" class="item-link">
                             <div class="menu-item">
                                 <p class="menu-name text-black">{{ item.name }}</p>
                                 <p class="menu-description">{{ item.description }}</p>
                                 <p class="menu-price text-black">{{ item.price }} EUR</p>
                                 <img class="menu-image" src="{{ item.image.url }}" alt="{{ item.name }}">
                             </div>
+                            </a>
                         </div>
                         {% endfor %}
                     </div>
                     <div class="row mt-2 mb-2">
-                        <h2 class="text-black">Brunch</h2>
+                        <h2 class="menu-title text-black" id="brunch">Brunch</h2>
                     </div>
                     <div class="row mt-1 mb-2">
                         {% for item in brunch %}
-                        <div class="col-12 col-md-4 mb-4 box">
+                        <div class="col-12 col-md-4 mb-4">
+                            <a href="#" class="item-link">
                             <div class="menu-item">
                                 <p class="menu-name text-black">{{ item.name }}</p>
                                 <p class="menu-description">{{ item.description }}</p>
                                 <p class="menu-price text-black">{{ item.price }} EUR</p>
                                 <img class="menu-image" src="{{ item.image.url }}" alt="{{ item.name }}">
                             </div>
+                            </a>
                         </div>
                         {% endfor %}
                     </div>
                     <div class="row mt-2 mb-2">
-                        <h2 class="text-black">Dessert</h2>
+                        <h2 class="menu-title text-black" id="dessert">Dessert</h2>
                     </div>
                     <div class="row mt-1 mb-2">
                         {% for item in dessert %}
-                        <div class="col-12 col-md-4 mb-4 box">
+                        <div class="col-12 col-md-4 mb-4">
+                            <a href="#" class="item-link">
                             <div class="menu-item">
                                 <p class="menu-name text-black">{{ item.name }}</p>
                                 <p class="menu-description">{{ item.description }}</p>
                                 <p class="menu-price text-black">{{ item.price }} EUR</p>
                                 <img class="menu-image" src="{{ item.image.url }}" alt="{{ item.name }}">
                             </div>
+                            </a>
                         </div>
                         {% endfor %}
                     </div>
                     <div class="row mt-2 mb-2">
-                        <h2 class="text-black">Draft Beer</h2>
+                        <h2 class="menu-title text-black" id="draftbeer">Draft Beer</h2>
                     </div>
                     <div class="row mt-1 mb-2">
                         {% for item in draft_beer %}
-                        <div class="col-12 col-md-4 mb-4 box">
+                        <div class="col-12 col-md-4 mb-4">
+                            <a href="#" class="item-link">
                             <div class="menu-item">
                                 <p class="menu-name text-black">{{ item.name }}</p>
                                 <p class="menu-description">{{ item.description }}</p>
                                 <p class="menu-price text-black">{{ item.price }} EUR</p>
                                 <img class="menu-image" src="{{ item.image.url }}" alt="{{ item.name }}">
                             </div>
+                            </a>
                         </div>
                         {% endfor %}
                     </div>
                     <div class="row mt-2 mb-2">
-                        <h2 class="text-black">In A Bottle</h2>
+                        <h2 class="menu-title text-black" id="inabottle">In A Bottle</h2>
                     </div>
                     <div class="row mt-1 mb-2">
                         {% for item in in_a_bottle %}
-                        <div class="col-12 col-md-4 mb-4 box">
+                        <div class="col-12 col-md-4 mb-4">
+                            <a href="#" class="item-link">
                             <div class="menu-item">
                                 <p class="menu-name text-black">{{ item.name }}</p>
                                 <p class="menu-description">{{ item.description }}</p>
                                 <p class="menu-price text-black">{{ item.price }} EUR</p>
                                 <img class="menu-image" src="{{ item.image.url }}" alt="{{ item.name }}">
                             </div>
+                            </a>
                         </div>
                         {% endfor %}
                     </div>
                     <div class="row mt-2 mb-2">
-                        <h2 class="text-black">Aperitivo</h2>
+                        <h2 class="menu-title text-black" id="aperitivo">Aperitivo</h2>
                     </div>
                     <div class="row mt-1 mb-2">
                         {% for item in aperitivo %}
-                        <div class="col-12 col-md-4 mb-4 box">
+                        <div class="col-12 col-md-4 mb-4">
+                            <a href="#" class="item-link">
                             <div class="menu-item">
                                 <p class="menu-name text-black">{{ item.name }}</p>
                                 <p class="menu-description">{{ item.description }}</p>
                                 <p class="menu-price text-black">{{ item.price }} EUR</p>
                                 <img class="menu-image" src="{{ item.image.url }}" alt="{{ item.name }}">
                             </div>
+                            </a>
                         </div>
                         {% endfor %}
                     </div>
                     <div class="row mt-2 mb-2">
-                        <h2 class="text-black">Spirits</h2>
+                        <h2 class="menu-title text-black" id="spirits">Spirits</h2>
                     </div>
                     <div class="row mt-1 mb-2">
                         {% for item in spirits %}
-                        <div class="col-12 col-md-4 mb-4 box">
+                        <div class="col-12 col-md-4 mb-4">
+                            <a href="#" class="item-link">
                             <div class="menu-item">
                                 <p class="menu-name text-black">{{ item.name }}</p>
                                 <p class="menu-description">{{ item.description }}</p>
                                 <p class="menu-price text-black">{{ item.price }} EUR</p>
                                 <img class="menu-image" src="{{ item.image.url }}" alt="{{ item.name }}">
                             </div>
+                            </a>
                         </div>
                         {% endfor %}
                     </div>
                     <div class="row mt-2 mb-2">
-                        <h2 class="text-black">Premium Cocktails</h2>
+                        <h2 class="menu-title text-black" id="premiumcocktails">Premium Cocktails</h2>
                     </div>
                     <div class="row mt-1 mb-2">
                         {% for item in premium_cocktails %}
-                        <div class="col-12 col-md-4 mb-4 box">
+                        <div class="col-12 col-md-4 mb-4 ">
+                            <a href="#" class="item-link">
                             <div class="menu-item">
                                 <p class="menu-name">{{ item.name }}</p>
                                 <p class="menu-description">{{ item.description }}</p>
                                 <p class="menu-price">{{ item.price }} EUR</p>
                                 <img class="menu-image" src="{{ item.image.url }}" alt="{{ item.name }}">
                             </div>
+                            </a>
                         </div>
                         {% endfor %}
                     </div>
                     <div class="row mt-2 mb-2">
-                        <h2 class="text-black">Hot Drinks</h2>
+                        <h2 class="menu-title text-black" id="hotdrinks">Hot Drinks</h2>
                     </div>
                     <div class="row mt-1 mb-2">
                         {% for item in hotdrinks %}
-                        <div class="col-12 col-md-4 mb-4 box">
+                        <div class="col-12 col-md-4 mb-4">
+                            <a href="#" class="item-link">
                             <div class="menu-item">
                                 <p class="menu-name text-black">{{ item.name }}</p>
                                 <p class="menu-description">{{ item.description }}</p>
                                 <p class="menu-price text-black">{{ item.price }} EUR</p>
                                 <img class="menu-image" src="{{ item.image.url }}" alt="{{ item.name }}">
                             </div>
+                            </a>
                         </div>
                         {% endfor %}
                     </div>
                     <div class="row mt-2 mb-2">
-                        <h2 class="text-black">Cold Drinks</h2>
+                        <h2 class="menu-title text-black" id="colddrinks">Cold Drinks</h2>
                     </div>
                     <div class="row mt-1 mb-2">
                         {% for item in colddrinks %}
-                        <div class="col-12 col-md-4 mb-4 box">
+                        <div class="col-12 col-md-4 mb-4">
+                            <a href="#" class="item-link">
                             <div class="menu-item">
                                 <p class="menu-name text-black">{{ item.name }}</p>
                                 <p class="menu-description">{{ item.description }}</p>
                                 <p class="menu-price text-black">{{ item.price }} EUR</p>
                                 <img class="menu-image" src="{{ item.image.url }}" alt="{{ item.name }}">
                             </div>
+                            </a>
                         </div>
                         {% endfor %}
                     </div>
                     <div class="row mt-2 mb-2">
-                        <h2 class="text-black">Digestive</h2>
+                        <h2 class="menu-title text-black" id="digestive">Digestive</h2>
                     </div>
                     <div class="row mt-1 mb-2">
                         {% for item in digestive %}
-                        <div class="col-12 col-md-4 mb-4 box">
+                        <div class="col-12 col-md-4 mb-4">
+                            <a href="#" class="item-link">
                             <div class="menu-item">
                                 <p class="menu-name text-black">{{ item.name }}</p>
                                 <p class="menu-description">{{ item.description }}</p>
                                 <p class="menu-price text-black">{{ item.price }} EUR</p>
                                 <img class="menu-image" src="{{ item.image.url }}" alt="{{ item.name }}">
                             </div>
+                            </a>
                         </div>
                         {% endfor %}
                     </div>
                     <div class="row mt-2 mb-2">
-                        <h2 class="text-black">Bubbles</h2>
+                        <h2 class="menu-title text-black" id="bubbles">Bubbles</h2>
                     </div>
                     <div class="row mt-1 mb-2">
                         {% for item in bubbles %}
-                        <div class="col-12 col-md-4 mb-4 box">
+                        <div class="col-12 col-md-4 mb-4">
+                            <a href="#" class="item-link">
                             <div class="menu-item">
                                 <p class="menu-name text-black">{{ item.name }}</p>
                                 <p class="menu-description">{{ item.description }}</p>
                                 <p class="menu-price text-black">{{ item.price }} EUR</p>
                                 <img class="menu-image" src="{{ item.image.url }}" alt="{{ item.name }}">
                             </div>
+                            </a>
                         </div>
                         {% endfor %}
                     </div>
                     <div class="row mt-2 mb-2">
-                        <h2 class="text-black">Housewine</h2>
+                        <h2 class="menu-title text-black" id="wine">Housewine</h2>
                     </div>
                     <div class="row mt-1 mb-2">
                         {% for item in housewine %}
-                        <div class="col-12 col-md-4 mb-4 box">
+                        <div class="col-12 col-md-4 mb-4">
+                            <a href="#" class="item-link">
                             <div class="menu-item">
                                 <p class="menu-name text-black">{{ item.name }}</p>
                                 <p class="menu-description">{{ item.description }}</p>
                                 <p class="menu-price text-black">{{ item.price }} EUR</p>
                                 <img class="menu-image" src="{{ item.image.url }}" alt="{{ item.name }}">
                             </div>
+                            </a>
                         </div>
                         {% endfor %}
                     </div>
                     <div class="row mt-2 mb-2">
-                        <h2 class="text-black">White Whine Suggestion (Bottle Only)</h2>
+                        <h2 class="menu-title text-black">White Whine Suggestion (Bottle Only)</h2>
                     </div>
                     <div class="row mt-1 mb-2">
                         {% for item in whitewinesuggestions %}
-                        <div class="col-12 col-md-4 mb-4 box">
+                        <div class="col-12 col-md-4 mb-4">
+                            <a href="#" class="item-link">
                             <div class="menu-item">
                                 <p class="menu-name text-black">{{ item.name }}</p>
                                 <p class="menu-description">{{ item.description }}</p>
                                 <p class="menu-price text-black">{{ item.price }} EUR</p>
                                 <img class="menu-image" src="{{ item.image.url }}" alt="{{ item.name }}">
                             </div>
+                            </a>
                         </div>
                         {% endfor %}
                     </div>
                     <div class="row mt-2 mb-2">
-                        <h2 class="text-black">Red Wine Suggestion (Bottle Only)</h2>
+                        <h2 class="menu-title text-black">Red Wine Suggestion (Bottle Only)</h2>
                     </div>
                     <div class="row mt-1 mb-2">
                         {% for item in redwinesuggestions %}
-                        <div class="col-12 col-md-4 mb-4 box">
+                        <div class="col-12 col-md-4 mb-4">
+                            <a href="#" class="item-link">
                             <div class="menu-item">
                                 <p class="menu-name text-black">{{ item.name }}</p>
                                 <p class="menu-description">{{ item.description }}</p>
                                 <p class="menu-price text-black">{{ item.price }} EUR</p>
                                 <img class="menu-image" src="{{ item.image.url }}" alt="{{ item.name }}">
                             </div>
+                            </a>
                         </div>
                         {% endfor %}
                     </div>
                     <div class="row mt-2 mb-2">
-                        <h2 class="text-black">Rose Wine Suggestion (Bottle Only)</h2>
+                        <h2 class="menu-title text-black">Rose Wine Suggestion (Bottle Only)</h2>
                     </div>
                     <div class="row mt-1 mb-2">
                         {% for item in rosewinesuggestions %}
-                        <div class="col-12 col-md-4 mb-4 box">
+                        <div class="col-12 col-md-4 mb-4">
+                            <a href="#" class="item-link">
                             <div class="menu-item">
                                 <p class="menu-name text-black">{{ item.name }}</p>
                                 <p class="menu-description">{{ item.description }}</p>
                                 <p class="menu-price text-black">{{ item.price }} EUR</p>
                                 <img class="menu-image" src="{{ item.image.url }}" alt="{{ item.name }}">
                             </div>
+                            </a>
                         </div>
                         {% endfor %}
                     </div>
@@ -314,4 +369,9 @@
         </div>
     </div>
 
+{% endblock %}
+
+{% block postloadjs %}
+{{ block.super}}
+<script src="{% static 'menu/js/menu.js' %}"></script>
 {% endblock %}
