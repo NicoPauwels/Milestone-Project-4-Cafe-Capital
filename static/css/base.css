@@ -112,6 +112,64 @@ body {
     margin-right: 32px;
 }
 
+.tab {
+    height: 100%;
+    width: 0;
+    position: fixed;
+    z-index: 2;
+    top: 0;
+    right: 0;
+    background-color: white;
+    overflow-x: hidden;
+    padding-left: 20px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    transition: 0.1s;
+}
+
+.taboverlay {
+    display: none;
+    height: 100%;
+    width: 100%;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    right: 0;
+    background-color: rgba(0,0,0,0.4);
+}
+
+.tabclosebutton {
+    border: none;
+    background: none;
+    padding: 0;
+}
+
+.tabclosebutton:focus {
+    outline: 0;
+}
+
+.tabcloseicon {
+    font-size: 25px;
+}
+
+.tabtitle {
+    margin-top: 20px;
+    margin-bottom: 5px;
+}
+
+.tabbutton {
+    margin: 0;
+    font-size: 14px;
+}
+
+.tabbuttonicon {
+    margin-right: 10px;
+}
+
+.tabheading {
+    margin-bottom: 20px;
+}
+
 .nav-button {
     margin: 8px;
 }
