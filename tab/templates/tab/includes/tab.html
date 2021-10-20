@@ -1,0 +1,13 @@
+<div class="tabheading">
+<button class="tabclosebutton" onclick="closeTab()"><i class="fas fa-times tabcloseicon"></i></button>
+<h2 class="text-black tabtitle">Your Tab</h2>
+<p>The order will be served at table 7</p>
+<a href="{% url 'view_items' %}" class="btn btn-black rounded-pill tabbutton"><i class="fas fa-plus tabbuttonicon"></i>Add items</a>
+</div>
+<div class="tabcontent">
+    {% if tab_items %}
+        <div class="tab-item"></div>
+    {% else %}
+        <p>No items on your tab.</p>
+    {% endif %}    
+</div>
