@@ -1,6 +1,6 @@
-from typing import Dict
-from django.shortcuts import render
-from .models import Category, Item
+
+from django.shortcuts import get_object_or_404, render
+from .models import Item
 
 # Create your views here.
 
@@ -52,3 +52,15 @@ def all_items(request):
     }
     
     return render(request, 'menu/menu.html', context)
+
+
+def menu_item(request, item_id):
+    """ A view to show an individual item """
+
+    item = get_object_or_404(Item, pk=item_id)
+
+    context = {
+        'item': item,
+    }
+
+    return render(request, 'menu/menu_item.html', context)

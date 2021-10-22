@@ -71,8 +71,8 @@
               <span>
                 <i class="fas fa-receipt"></i>
                 &nbsp;
-                {% if grand_total %}
-                {{ grand_total|floatformat:2}} EUR
+                {% if total %}
+                {{ total|floatformat:2}} EUR
                 {% else %}
                 0,00 EUR
                 {% endif %}

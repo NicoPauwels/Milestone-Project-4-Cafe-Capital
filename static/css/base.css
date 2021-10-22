@@ -39,6 +39,12 @@ body {
     color: white;
 }
 
+.btn-outline-black {
+    background: white;
+    color: black;
+    border: 1px solid black;
+}
+
 .menu-button:hover,
 .menu-button:active,
 .menu-button:focus,
@@ -47,6 +53,14 @@ body {
 .btn-black:focus {
     background: black;
     color: #2ECC71;
+}
+
+.btn-outline-black:hover,
+.btn-outline-black:active,
+.btn-oultine-black:focus {
+    background: black;
+    color: #2ECC71;
+    border-top: 1px solid white;
 }
 
 #topnav {
@@ -121,7 +135,6 @@ body {
     right: 0;
     background-color: white;
     overflow-x: hidden;
-    padding-left: 20px;
     padding-top: 20px;
     padding-bottom: 20px;
     transition: 0.1s;
@@ -168,6 +181,11 @@ body {
 
 .tabheading {
     margin-bottom: 20px;
+    margin-left: 20px;
+}
+
+.tabcontent {
+    margin-left: 20px;
 }
 
 .nav-button {
@@ -274,6 +292,29 @@ body {
     height: fit-content;
 }
 
+.menu-item-image {
+    width: 300px;
+    height: 300px;
+    float: right;
+}
+
+.form-control {
+    width: 100%;
+    max-width: 350px;
+}
+
+.add-to-tab-button {
+    width: 100%;
+    max-width: 350px;
+    display: block;
+}
+
+.form {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+}
+
 /* ----- Media Queries ----- */
 
 /* Slightly larger container on xl screens */
@@ -358,6 +399,21 @@ body {
 
     .mb-4 {
         margin-bottom: 10px !important;
+    }
+
+    .menu-item-image {
+        width: 100%;
+        float: none;
+        display: block;
+        margin: auto;
+    }
+
+    .menu-item-title {
+        margin-top: 15px;
+    }
+
+    .form {
+        position: relative;
     }
   }
 
