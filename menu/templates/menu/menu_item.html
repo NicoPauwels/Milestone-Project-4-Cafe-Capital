@@ -2,12 +2,12 @@
 {% load static %}
 
 {% block page_header %}
-    <div class="container header-container">
-        <div class="row">
-            <div class="col">
-            </div>
+<div class="container header-container">
+    <div class="row">
+        <div class="col">
         </div>
-    </div>  
+    </div>
+</div>
 {% endblock %}
 
 {% block content %}
@@ -27,8 +27,20 @@
                     <div class="col-12">
                         <div class="form-group">
                             <div class="input-group">
-                                <input class="form-control" type="number" name="quantity" value="1" min="1" max="99"
-                                    data-item_id="{{ item.id }}" id="id_qty_{{ item.id }}">
+                                <div class="input-group-prepend">
+                                    <button class="min-qty btn btn-black rounded-0" data-item_id="{{ item.id }}"
+                                        id="min-qty_{{ item.id }}">
+                                        <i class="fas fa-minus"></i>
+                                    </button>
+                                </div>
+                                <input class="form-control qty_input" type="number" name="quantity" value="1" min="1"
+                                    max="99" data-item_id="{{ item.id }}" id="id_qty_{{ item.id }}">
+                                <div class="input-group-append">
+                                    <button class="plus-qty btn btn-black rounded-0" data-item_id="{{ item.id }}"
+                                        id="plus-qty_{{ item.id }}">
+                                        <i class="fas fa-plus"></i>
+                                    </button>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -45,4 +57,9 @@
         </div>
     </div>
 </div>
+{% endblock %}
+
+{% block postloadjs %}
+{{ block.super }}
+<script src="{% static 'menu/js/qty_script.js' %}"></script>
 {% endblock %}
