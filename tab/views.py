@@ -15,5 +15,4 @@ def add_to_tab(request, item_id):
         tab[item_id] = quantity
 
     request.session['tab'] = tab
-    print(request.session['tab'])
     return redirect(redirect_url)
