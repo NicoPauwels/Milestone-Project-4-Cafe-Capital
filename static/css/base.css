@@ -179,12 +179,12 @@ body {
     margin-right: 10px;
 }
 
-.tabheading {
+.tab-heading {
     margin-bottom: 20px;
     margin-left: 20px;
 }
 
-.tabcontent {
+.tab-content {
     margin-left: 20px;
 }
 
@@ -312,6 +312,38 @@ body {
 .form {
     position: absolute;
     bottom: 0;
+    width: 100%;
+}
+
+.tab-image {
+    width: 50px;
+    height: 50px;
+}
+
+
+.tab-input {
+    width: fit-content;
+    font-size: 12px;
+}
+
+.tab-item {
+    font-size: 14px;
+    margin-bottom: 3px;
+}
+
+.tab-price {
+    font-size: 12px;
+    margin-bottom: 3px;
+}
+
+.tab-footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    padding: 20px;
+}
+
+.place-order-button {
     width: 100%;
 }
 
