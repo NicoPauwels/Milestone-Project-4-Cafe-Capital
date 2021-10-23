@@ -1,13 +1,37 @@
-<div class="tabheading">
-<button class="tabclosebutton" onclick="closeTab()"><i class="fas fa-times tabcloseicon"></i></button>
-<h2 class="text-black tabtitle">Your Tab</h2>
-<p>The order will be served at table 7</p>
-<a href="{% url 'view_items' %}" class="btn btn-black rounded-pill tabbutton"><i class="fas fa-plus tabbuttonicon"></i>Add items</a>
+<div class="tab-heading">
+    <button class="tabclosebutton" onclick="closeTab()"><i class="fas fa-times tabcloseicon"></i></button>
+    <h2 class="text-black tabtitle">Your Tab</h2>
+    <p>The order will be served at table 7</p>
+    <a href="{% url 'view_items' %}" class="btn btn-black rounded-pill tabbutton"><i
+            class="fas fa-plus tabbuttonicon"></i>Add items</a>
 </div>
-<div class="tabcontent">
+<div class="tab-content">
     {% if tab_items %}
-        <div class="tab-item"></div>
+    <table class="table">
+        <tbody>
+            {% for item in tab_items %}
+            <tr>
+                <td>
+                    <input class="form-control tab-input" type="number" name="quantity" value="{{ item.quantity }}"
+                        min="1" max="99" data-item_id="{{ item.id }}" id="id_qty_{{ item.id }}">
+                </td>
+                <td>
+                    <p class="tab-item text-black"><strong>{{ item.item.name }}</strong></p>
+                    <p class="tab-price">{{ item.item_total }} EUR</p>
+                </td>
+                <td>
+                    <img src="{{ item.item.image.url }}" class="tab-image">
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
     {% else %}
-        <p>No items on your tab.</p>
-    {% endif %}    
+    <p>No items on your tab.</p>
+    {% endif %}
+</div>
+<div class="tab-footer">
+    <a href="" class="btn btn-black btn-lg rounded-0 place-order-button">
+        <span class="text-uppercase">Place Order - {{ total }} EUR</span>
+    </a>
 </div>
