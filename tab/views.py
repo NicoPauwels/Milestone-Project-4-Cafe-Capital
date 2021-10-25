@@ -1,4 +1,4 @@
-from django.shortcuts import redirect
+from django.shortcuts import redirect, reverse
 
 # Create your views here.
 
@@ -16,3 +16,18 @@ def add_to_tab(request, item_id):
 
     request.session['tab'] = tab
     return redirect(redirect_url)
+
+
+def adjust_tab(request, item_id):
+    """ Adjust specified quantity of the specified item in the tab """
+
+    quantity = int(request.POST.get('quantity'))
+    tab = request.session.get('tab', {})
+
+    if quantity > 0:
+        tab[item_id] = quantity
+    else:
+        tab.pop[item_id]
+
+    request.session['tab'] = tab
+    return redirect(reverse('all_items'))
