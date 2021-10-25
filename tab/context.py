@@ -7,6 +7,7 @@ def show_tab(request):
     tab_items = []
     total = 0
     item_count = 0
+    item_total = 0
     tab = request.session.get('tab', {})
 
     for item_id, quantity in tab.items():
