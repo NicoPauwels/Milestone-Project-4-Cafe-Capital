@@ -46,5 +46,26 @@
 </div>
 
 {% block postloadjs %}
-<script src="{% static 'tab/js/tab.js' %}"></script>
+<script type="text/javascript">
+// update quantity
+$(".update-item").click(function(e) {
+    var form = $(this).parent().siblings().find(".update-form");
+    console.log(form);
+    $(form).submit();
+});
+
+// remove item
+$(".remove-item").click(function(e) {
+    var csrfToken = "{{ csrf_token }}";
+    var itemId = $(this).attr('id').split('remove_')[1];
+    var url = `/tab/remove/${itemId}/`;
+    var data = {'csrfmiddlewaretoken': csrfToken};
+    console.log(data);
+
+    $.post(url, data)
+    .done(function(){
+        location.reload();
+    });
+})
+</script>
 {% endblock %}
