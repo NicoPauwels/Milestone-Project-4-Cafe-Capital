@@ -6,6 +6,8 @@ html {
     height: 100%;
     scroll-behavior: smooth;
     scroll-padding-top: var(--navHeight);
+    margin: 0;
+    padding: 0;
 }
 
 body {
@@ -300,12 +302,12 @@ body {
 
 .form-control {
     width: 100%;
-    max-width: 350px;
+    max-width: 450px;
 }
 
 .add-to-tab-button {
     width: 100%;
-    max-width: 350px;
+    max-width: 450px;
     display: block;
 }
 
@@ -350,13 +352,53 @@ body {
 }
 
 .input-group {
-    max-width: 350px;
+    max-width: 450px;
 }
 
 .update-item,
 .remove-item {
     color: black;
     cursor: pointer;
+}
+
+#message-container {
+    position: fixed;
+    top: 80px;
+    z-index: 3;
+    height: 30px;
+    background-color: black;
+    text-align: center;
+    vertical-align: middle;
+    width: calc(100% - 30px);
+    margin-left: 15px;
+
+    animation:message-container 0.5s 1;
+    -webkit-animation:signup-response 0.5s 1;
+    animation-fill-mode: forwards;
+
+    animation-delay:5s;
+    -webkit-animation-delay:5s; /* Safari and Chrome */
+    -webkit-animation-fill-mode: forwards;
+}
+
+@keyframes signup-response{
+    from {opacity :1;}
+    to {opacity :0;}
+}
+
+@-webkit-keyframes signup-response{
+    from {opacity :1;}
+    to {opacity :0;}
+}
+
+.menu-item-detail {
+    max-width: 1500px; 
+}
+
+.message {
+    margin: 0 auto;
+    color: white;
+    line-height: 30px;
 }
 
 /* ----- Media Queries ----- */
@@ -369,23 +411,32 @@ body {
   }
   
   /* fixed top navbar only on medium and up */
-  @media (min-width: 992px) {
+  @media (min-width: 768px) {
       .fixed-top-desktop-only {
           position: fixed;
           top: 0;
           right: 0;
           left: 0;
           z-index: 1030;
-      }
+    }
   
       .header-container {
-          padding-top: 50px;
-      }
+          padding-top: 120px;
+    }
 
       #topnav {
         width: 80%;
         margin: 0 auto;
     }
+
+    .input-group {
+        max-width: 350px;
+    }
+
+    .add-to-tab-button {
+        max-width: 350px;
+    }
+
   }
 
   @media only screen and (max-width: 600px) {
@@ -453,7 +504,12 @@ body {
     }
 
     .menu-item-title {
-        margin-top: 15px;
+        margin-top: 10px;
+        font-size: 22px;
+    }
+
+    .menu-item-price {
+        font-size: 16px;
     }
 
     .form {
