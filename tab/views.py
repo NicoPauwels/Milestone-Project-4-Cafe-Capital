@@ -16,10 +16,10 @@ def add_to_tab(request, item_id):
 
     if item_id in list(tab.keys()):
         tab[item_id] += quantity
-        messages.success(request, f'Added {quantity} x {item.name} to your tab.')
+        messages.success(request, f'Added {quantity} x {item.name} to your tab')
     else:
         tab[item_id] = quantity
-        messages.success(request, f'Added {quantity} x {item.name} to your tab.')
+        messages.success(request, f'Added {quantity} x {item.name} to your tab')
 
     request.session['tab'] = tab
     return redirect(redirect_url)
@@ -34,10 +34,10 @@ def adjust_tab(request, item_id):
 
     if quantity > 0:
         tab[item_id] = quantity
-        messages.success(request, f'Updated {item.name} quantity to {quantity} in your tab.')
+        messages.success(request, f'Updated {item.name} quantity to {quantity} in your tab')
     else:
         tab.pop(item_id)
-        messages.success(request, f'Removed {item.name} from your tab.')
+        messages.success(request, f'Removed {item.name} from your tab')
 
     request.session['tab'] = tab
     return redirect(reverse(all_items))
@@ -51,7 +51,7 @@ def remove_from_tab(request, item_id):
         tab = request.session.get('tab', {})
 
         tab.pop(item_id)
-        messages.success(request, f'Removed {item.name} from your tab.')
+        messages.success(request, f'Removed {item.name} from your tab')
 
         request.session['tab'] = tab
         return HttpResponse(status=200)
