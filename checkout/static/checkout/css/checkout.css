@@ -1,0 +1,29 @@
+.table {
+    max-width: 350px;
+    margin: 0 auto;
+}
+
+.table td {
+    vertical-align: middle;
+}
+
+.tab-text {
+    font-size: 12px;
+}
+
+.total {
+    border-top: 1px solid #666666;
+}
+
+#payment-form {
+    max-width: 350px;
+    margin: 0 auto;
+}
+
+.icon {
+    padding-right: 5px;
+}
+
+.iconcolor {
+    color: #2ECC71;
+}
