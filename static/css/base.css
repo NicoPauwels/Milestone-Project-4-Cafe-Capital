@@ -70,7 +70,7 @@ body {
 }
 
 .header-container {
-    height: 80px;
+    height: 120px;
 }
 
 .text-black {
@@ -369,8 +369,7 @@ body {
     background-color: black;
     text-align: center;
     vertical-align: middle;
-    width: calc(100% - 30px);
-    margin-left: 15px;
+    width: 100%;
 
     animation:message-container 0.5s 1;
     -webkit-animation:signup-response 0.5s 1;
@@ -514,6 +513,11 @@ body {
 
     .form {
         position: relative;
+    }
+
+    #message-container {
+        width: calc(100% - 30px);
+        margin-left: 15px;
     }
   }
 
