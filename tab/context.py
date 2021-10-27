@@ -2,7 +2,7 @@ from django.shortcuts import get_object_or_404
 from menu.models import Item
 
 
-def show_tab(request):
+def tab_content(request):
 
     tab_items = []
     total = 0
