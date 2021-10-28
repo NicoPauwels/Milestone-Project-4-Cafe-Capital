@@ -1,8 +1,10 @@
-from django.shortcuts import get_object_or_404, render, redirect, reverse
+from django.http.response import HttpResponse
+from django.shortcuts import get_object_or_404, render, redirect, reverse, HttpResponse
+from django.views.decorators.http import require_POST
 from django.contrib import messages
 from django.conf import settings
+from django.views.decorators.http import require_POST
 
-from checkout.models import OrderLineItem
 
 from .forms import OrderForm
 from .models import Order, OrderLineItem
@@ -11,6 +13,22 @@ from menu.views import all_items
 from tab.context import tab_content
 
 import stripe
+import json
+
+
+@require_POST
+def cache_checkout_data(request):
+    try:
+        pid = request.POST.get('client_secret').split('_secret')[0]
+        stripe.api_key = settings.STRIPE_KEY
+        stripe.PaymentIntent.modify(pid, metadata={
+            'tab': json.dumps(request.session.get('tab')),
+            'username': request.user,
+        })
+        return HttpResponse(status=200)
+    except Exception as e:
+        messages.error(request, 'Your payment can not be processed')
+        return HttpResponse(content=e, status=400)
 
 
 def checkout(request):
@@ -28,6 +46,9 @@ def checkout(request):
         order_form = OrderForm(form_data)
         if order_form.is_valid():
             order = order_form.save(commit=False)
+            pid = request.POST.get('client_secret').split('_secret')[0]
+            order.stripe_pid = pid
+            order.original_tab = json.dumps(tab)
             order.save()
             for item_id, quantity in tab.items():
                 try:
