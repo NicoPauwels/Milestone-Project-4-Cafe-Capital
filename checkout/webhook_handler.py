@@ -25,7 +25,7 @@ class StripeWH_Handler():
         intent = event.data.object
         pid = intent.id
         tab = intent.metadata.tab
-        save_info = intent.metadata.save_info
+
         billing_details = intent.charges.data[0].billing_details
         order_total = round(intent.data.charges[0].amount / 100, 2)
 
@@ -59,17 +59,13 @@ class StripeWH_Handler():
                     stripe_pid=pid,
                 )
                 for item_id, quantity in json.loads(tab).items():
-                    order = Order.objects.create(
-                    full_name=billing_details.name,
-                    email=billing_details.email
-                )
-                item = get_object_or_404(Item, pk=item_id)
-                order_line_item = OrderLineItem(
+                    item = Item.objects.get(id=item_id)
+                    order_line_item = OrderLineItem(
                         order=order,
                         item=item,
                         item_quantity=quantity,
                     )
-                order_line_item.save()
+                    order_line_item.save()
             except Exception as e:
                 if order:
                     order.delete()
