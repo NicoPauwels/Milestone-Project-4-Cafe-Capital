@@ -20,6 +20,9 @@ class Order(models.Model):
     town_or_city = models.CharField(max_length=40, null=True, blank=True)
     date = models.DateTimeField(auto_now_add=True)
     order_total = models.DecimalField(max_digits=10, decimal_places=2, null=False, default=0)
+    original_tab = models.TextField(null=False, blank=False, default='')
+    stripe_pid = models.CharField(max_length=254, null=False, blank=False, default='')
+
 
     def _generate_order_number(self):
         """ Generate unique ordernumber with UUID """
