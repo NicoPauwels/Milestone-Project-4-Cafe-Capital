@@ -70,6 +70,11 @@
         </div>
     </div>
 </div>
+<div id="loading">
+    <h1 class="logo-font loading-spinner">
+        <i class="fas fa-3x fa-sync-alt fa-spin"></i>
+    </h1>
+</div>
 {% endblock %}
 
 {% block postloadjs %}
@@ -78,71 +83,3 @@
     {{ client_secret|json_script:"id_client_secret" }}
     <script src="{% static 'checkout/js/stripe_elements.js' %}"></script>
 {% endblock %}
-
-    <!--
-    <div class="row">
-        <div class="col-12 col-md-6 order-lg-last mb-5">
-            <div class="row">
-                <div class="col-7 offset-2">
-                    <p class="mb-1 small">Item</p>
-                </div>
-                <div class="col-3 text-right">
-                    <p class="mb-1 mt-0 small">Subtotal</p>
-                </div>
-            </div>
-            {% for item in tab_items %}
-                <div class="col-2 mb-1">
-                    <img class="w-100" src="{{ item.item.image.url }}" alt="{{ item.name }}">
-                </div>
-                <div class="col-7">
-                    <p class="my-0"><strong>{{ item.item.name }}</strong></p>
-                    <p class="my-0 small">Qty: {{ item.quantity }}</p>
-                </div>
-                <div class="col-3 text-right">
-                    <p class="my-0 small">{{ item.item_total }} EUR</p>
-                </div>
-            {% endfor %}
-        </div>
-        <div class="col-12 col-md-6">In order to place your order please fill out the form below.</div>
-        <form action="{% url 'checkout' %}" method="POST" id="payment-form">
-            {% csrf_token %}
-            <fieldset class="rounded px-3 mb-3">
-                <legend class="fieldset-label small text-black px-2 w-auto">Details</legend>
-                {{ order_form.full_name | as_crispy_field }}
-                {{ order_form.email | as_crispy_field }}
-            </fieldset>
-            <fieldset class="rounded px-3 mb-3">
-                <legend class="fieldset-label small text-black px-2 w-auto">Optional</legend>
-                {{ order_form.phone_number | as_crispy_field }}
-                {{ order_form.street_address1 | as_crispy_field }}
-                {{ order_form.street_address2 | as_crispy_field }}
-                {{ order_form.postcode | as_crispy_field }}
-                {{ order_form.town_or_city | as_crispy_field }}
-                <div class="form-check form-check-inline float-right mr-0">
-                    {% if user.is_authenticated %}
-                        <label class="form-check-label" for="id-save-info">Save this info to your profile</label>
-                        <input class="form-check-input ml-2 mr-0" type="checkbox" id="save-info" checked>
-                    {% else %}
-                        <label class="form-check-label" for="id-save-info">
-                            <a class="text-info" href="{% url 'account_signup' %}">Create an account</a> or
-                            <a class="text-info" href="{% url 'account_login' %}">login</a> to save this information.
-                        </label>
-                    {% endif %}
-                </div>
-            </fieldset>
-            <fieldset class="px-3">
-                <legend class="fieldset-label small text-black px-2 w-auto">Payment</legend>
-                <div class="mb-3" id="card-element"></div>
-                <div class="mb-3 text-danger" id="card-errors"></div>
-            </fieldset>
-            <div class="submit-button text-right mt-5 mb-2">
-                <button id="submit-button" class="btn btn-black rounded-0">
-                    <span class="font-weight-bold">Pay Your Order</span>
-                </button>
-                <p class="small text-danger my-0">
-                    <i class="fas fa-info-circle"></i><span>Your card will be charged with <strong>{{ total|floatformat:2 }} EUR</strong></span>
-                </p>
-            </div>
-        </form>
-    </div>
--->
