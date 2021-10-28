@@ -63,7 +63,7 @@ form.addEventListener('submit', function(ev) {
                 billing_details: {
                     name: $.trim(form.full_name.value),
                     email: $.trim(form.email.value),
-                }
+                },
             }
         }).then(function(result) {
             if (result.error) {
