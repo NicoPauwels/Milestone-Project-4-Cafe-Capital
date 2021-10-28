@@ -400,6 +400,11 @@ body {
     line-height: 30px;
 }
 
+.order-confirmation {
+    margin: 0 auto;
+    max-width: 350px;
+}
+
 /* ----- Media Queries ----- */
 
 /* Slightly larger container on xl screens */
@@ -420,7 +425,7 @@ body {
     }
   
       .header-container {
-          padding-top: 120px;
+          padding-top: 125px;
     }
 
       #topnav {
@@ -518,6 +523,10 @@ body {
     #message-container {
         width: calc(100% - 30px);
         margin-left: 15px;
+    }
+
+    .order-confirmation {
+        padding: 15px;
     }
   }
 
