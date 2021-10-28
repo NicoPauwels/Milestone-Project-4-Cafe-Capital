@@ -16,6 +16,8 @@ class OrderAdmin(admin.ModelAdmin):
         'order_number', 
         'date', 
         'order_total',
+        'original_tab',
+        'stripe_pid',
     )
 
     fields = (
@@ -29,13 +31,15 @@ class OrderAdmin(admin.ModelAdmin):
         'postcode',
         'town_or_city',
         'order_total',
+        'original_tab',
+        'stripe_pid',
     )
 
     list_display = (
         'order_number',
         'date',
         'full_name',
-        'order_total',  
+        'order_total',
     )
 
     ordering = (
