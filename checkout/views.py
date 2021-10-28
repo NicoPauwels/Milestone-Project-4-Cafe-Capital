@@ -7,6 +7,7 @@ from checkout.models import OrderLineItem
 from .forms import OrderForm
 from .models import Order, OrderLineItem
 from menu.models import Item
+from menu.views import all_items
 from tab.context import tab_content
 
 import stripe
@@ -23,6 +24,7 @@ def checkout(request):
             'full_name': request.POST['full_name'],
             'email': request.POST['email'],
         }
+        
         order_form = OrderForm(form_data)
         if order_form.is_valid():
             order = order_form.save(commit=False)
@@ -43,11 +45,13 @@ def checkout(request):
             return redirect(reverse('checkout_success', args=[order.order_number]))
         else:
             messages.error(request, 'There was an error with your form')
+            return redirect(reverse(all_items))
 
     else:
         tab = request.session.get('tab', {})
         if not tab:
             messages.error(request, "There's nothing on your tab at the moment")
+            return redirect(reverse(all_items))
 
         current_tab = tab_content(request)
         total = current_tab['total']
@@ -62,6 +66,7 @@ def checkout(request):
 
     if not stripe_public_key:
         messages.warning(request, 'Stripe public key is missing.')
+        return redirect(reverse(all_items))
 
 
     template = 'checkout/checkout.html'
