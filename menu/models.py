@@ -17,7 +17,7 @@ class Category(models.Model):
 
 class Item(models.Model):
     category = models.ForeignKey('Category', null=False, blank=False, on_delete=models.CASCADE)
-    item = models.CharField(max_length=254, null=False, blank=False)
+    item = models.CharField(max_length=254, null=True, blank=True)
     name = models.CharField(max_length=254, null=False, blank=False)
     description = models.TextField(null=True, blank=True)
     price = models.DecimalField(max_digits=5, decimal_places=2, null=False, blank=False)
