@@ -469,9 +469,13 @@ body {
 	color: black;
 }
 
-.add-item-wrapper {
-    max-width: 350px;
-    margin: 0 auto;
+.edit-delete-button {
+    margin-right: 10px;
+    color: black;
+}
+
+.edit-delete-button:hover {
+    color:#2ECC71;
 }
 
 /* ----- Media Queries ----- */
