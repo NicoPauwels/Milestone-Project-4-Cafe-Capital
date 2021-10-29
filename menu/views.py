@@ -88,3 +88,27 @@ def add_item(request):
     }
 
     return render(request, template, context)
+
+
+def edit_item(request, item_id):
+    """ Edit an item of the menu """
+    item = get_object_or_404(Item, pk=item_id)
+    if request.method == 'POST':
+        form = ItemForm(request.POST, request.FILES, instance=item)
+        if form.is_valid():
+            form.save()
+            messages.success(request, 'Item successfully updated')
+            return redirect(reverse('menu_item', args=[item.id]))
+        else:
+            messages.error(request, 'Failed to update item')
+    else:
+        form = ItemForm(instance=item)
+        messages.info(request, f'You are editing {item.name}')
+
+    template = 'menu/edit_item.html'
+    context = {
+        'form': form,
+        'item': item,
+    }
+
+    return render(request, template, context)
