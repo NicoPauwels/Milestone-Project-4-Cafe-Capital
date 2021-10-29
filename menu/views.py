@@ -1,5 +1,7 @@
 
-from django.shortcuts import get_object_or_404, render
+from django.shortcuts import get_object_or_404, render, redirect, reverse
+from django.contrib import messages
+
 from .models import Item
 from .forms import ItemForm
 
@@ -69,8 +71,17 @@ def menu_item(request, item_id):
 
 def add_item(request):
     """ Add an item to the menu """
-    
-    form = ItemForm()
+    if request.method == 'POST':
+        form = ItemForm(request.POST, request.FILES)
+        if form.is_valid():
+            form.save()
+            messages.success(request, 'Item was added successfully')
+            return redirect(reverse('add_item'))
+        else:
+            messages.error(request, 'Failed to add the item')
+    else:
+        form = ItemForm()
+
     template = 'menu/add_item.html'
     context = {
         'form': form,
