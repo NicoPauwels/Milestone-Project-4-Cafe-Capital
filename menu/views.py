@@ -74,9 +74,9 @@ def add_item(request):
     if request.method == 'POST':
         form = ItemForm(request.POST, request.FILES)
         if form.is_valid():
-            form.save()
+            item = form.save()
             messages.success(request, 'Item was added successfully')
-            return redirect(reverse('add_item'))
+            return redirect(reverse('menu_item', args=[item.id]))
         else:
             messages.error(request, 'Failed to add the item')
     else:
@@ -112,3 +112,11 @@ def edit_item(request, item_id):
     }
 
     return render(request, template, context)
+
+
+def delete_item(request, item_id):
+    """ Delete a product from the menu """
+    item = get_object_or_404(Item, pk=item_id)
+    item.delete()
+    messages.success(request, 'Item deleted')
+    return redirect(reverse('view_items'))
