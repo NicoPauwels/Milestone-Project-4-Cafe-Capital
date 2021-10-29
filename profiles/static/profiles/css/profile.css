@@ -1,0 +1,18 @@
+.profile-update-profile-wrapper {
+    max-width: 350px;
+    margin: 0 auto;
+    padding-top:15px;
+}    
+
+.profile-update-orders-wrapper {
+    margin: 0 auto;
+    padding-top:15px;
+}     
+
+#profile-update-form::placeholder {
+    color: #aab7c4;
+}
+
+#profile-update-form .form-control {
+    color: black;
+}
