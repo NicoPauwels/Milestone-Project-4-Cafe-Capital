@@ -1,11 +1,10 @@
-
 from django.shortcuts import get_object_or_404, render, redirect, reverse
 from django.contrib import messages
+from django.contrib.auth.decorators import login_required
 
 from .models import Item
 from .forms import ItemForm
 
-# Create your views here.
 
 def all_items(request):
     """ A view to return all items per category """
@@ -68,9 +67,13 @@ def menu_item(request, item_id):
 
     return render(request, 'menu/menu_item.html', context)
 
-
+@login_required
 def add_item(request):
     """ Add an item to the menu """
+    if not request.user.is_superuser:
+        messages.error(request, 'No authorization')
+        return redirect(reverse('home'))
+
     if request.method == 'POST':
         form = ItemForm(request.POST, request.FILES)
         if form.is_valid():
@@ -89,9 +92,13 @@ def add_item(request):
 
     return render(request, template, context)
 
-
+@login_required
 def edit_item(request, item_id):
     """ Edit an item of the menu """
+    if not request.user.is_superuser:
+        messages.error(request, 'No authorization')
+        return redirect(reverse('home'))
+
     item = get_object_or_404(Item, pk=item_id)
     if request.method == 'POST':
         form = ItemForm(request.POST, request.FILES, instance=item)
@@ -113,9 +120,13 @@ def edit_item(request, item_id):
 
     return render(request, template, context)
 
-
+@login_required
 def delete_item(request, item_id):
     """ Delete a product from the menu """
+    if not request.user.is_superuser:
+        messages.error(request, 'No authorization')
+        return redirect(reverse('home'))
+        
     item = get_object_or_404(Item, pk=item_id)
     item.delete()
     messages.success(request, 'Item deleted')
