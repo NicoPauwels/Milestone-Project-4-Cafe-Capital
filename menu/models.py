@@ -16,12 +16,12 @@ class Category(models.Model):
         return self.display_name
 
 class Item(models.Model):
-    category = models.ForeignKey('Category', null=True, blank=True, on_delete=models.SET_NULL)
-    item = models.CharField(max_length=254, null=True, blank=True)
-    name = models.CharField(max_length=254)
+    category = models.ForeignKey('Category', null=False, blank=False, on_delete=models.CASCADE)
+    item = models.CharField(max_length=254, null=False, blank=False)
+    name = models.CharField(max_length=254, null=False, blank=False)
     description = models.TextField(null=True, blank=True)
-    price = models.DecimalField(max_digits=5, decimal_places=2)
-    image = models.ImageField(null=True, blank=True)
+    price = models.DecimalField(max_digits=5, decimal_places=2, null=False, blank=False)
+    image = models.ImageField(null=False, blank=False)
 
     def __str__(self):
         return self.name

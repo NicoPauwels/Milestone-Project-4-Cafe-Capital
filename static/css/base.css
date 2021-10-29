@@ -400,10 +400,15 @@ body {
     line-height: 30px;
 }
 
-.order-confirmation {
+.form-add-item {
     margin: 0 auto;
     max-width: 350px;
 }
+
+.form-add-item textarea {
+    height:60px;
+}
+
 
 /* ----- Allauth form formatting ----- */
 
@@ -464,6 +469,10 @@ body {
 	color: black;
 }
 
+.add-item-wrapper {
+    max-width: 350px;
+    margin: 0 auto;
+}
 
 /* ----- Media Queries ----- */
 

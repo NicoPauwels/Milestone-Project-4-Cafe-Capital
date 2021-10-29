@@ -1,6 +1,7 @@
 
 from django.shortcuts import get_object_or_404, render
 from .models import Item
+from .forms import ItemForm
 
 # Create your views here.
 
@@ -64,3 +65,15 @@ def menu_item(request, item_id):
     }
 
     return render(request, 'menu/menu_item.html', context)
+
+
+def add_item(request):
+    """ Add an item to the menu """
+    
+    form = ItemForm()
+    template = 'menu/add_item.html'
+    context = {
+        'form': form,
+    }
+
+    return render(request, template, context)
