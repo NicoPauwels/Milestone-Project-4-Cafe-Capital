@@ -16,3 +16,12 @@
 #profile-update-form .form-control {
     color: black;
 }
+
+.order-history {
+    max-width: 350px;
+}
+
+.order-history-element {
+    border: 1px solid #aab7c4;
+    padding: 15px;
+}
