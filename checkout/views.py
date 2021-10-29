@@ -1,15 +1,14 @@
-from django.http.response import HttpResponse
 from django.shortcuts import get_object_or_404, render, redirect, reverse, HttpResponse
 from django.views.decorators.http import require_POST
 from django.contrib import messages
 from django.conf import settings
-from django.views.decorators.http import require_POST
-
 
 from .forms import OrderForm
 from .models import Order, OrderLineItem
 from menu.models import Item
 from menu.views import all_items
+from profiles.forms import UserProfileForm
+from profiles.models import UserProfile
 from tab.context import tab_content
 
 import stripe
@@ -85,7 +84,17 @@ def checkout(request):
             currency=settings.STRIPE_CURRENCY,
         )
 
-        order_form = OrderForm()
+        if request.user.is_authenticated:
+            try:
+                profile = UserProfile.objects.get(user=request.user)
+                order_form = OrderForm(initial={
+                    'full_name': profile.user.get_full_name(),
+                    'email': profile.user.email,
+                })
+            except UserProfile.DoesNotExist:
+                order_form = OrderForm()
+        else:
+            order_form = OrderForm()
 
     if not stripe_public_key:
         messages.warning(request, 'Stripe public key is missing.')
@@ -106,6 +115,21 @@ def checkout_success(request, order_number):
     """" Handle successful checkouts """
     save_info = request.session.get('save_info')
     order = get_object_or_404(Order, order_number=order_number)
+
+    if request.user.is_authenticated:
+        profile = UserProfile.objects.get(user=request.user)
+        order.user_profile = profile
+        order.save()
+
+        if save_info:
+            profile_data = {
+                'full_name': order.full_name,
+                'email': order.email,
+            }
+            user_profile_form = UserProfileForm(profile_data, instance=profile)
+            if user_profile_form.is_valid():
+                user_profile_form.save()
+
     messages.success(request, f'Order was successfully placed')
 
     if 'tab' in request.session:
