@@ -1,11 +1,12 @@
 from django.http import HttpResponse
-from django.shortcuts import get_object_or_404
 
 from .models import Order, OrderLineItem
 from menu.models import Item
+from profiles.models import UserProfile
 
 import json
 import time
+
 
 class StripeWH_Handler():
     """ Handle Stripe webhooks """
@@ -29,6 +30,14 @@ class StripeWH_Handler():
 
         billing_details = intent.charges.data[0].billing_details
         order_total = round(intent.data.charges[0].amount / 100, 2)
+
+        profile = None
+        username = intent.metadata.username
+        if username != 'AnonymousUser':
+            profile = UserProfile.objects.get(user__username=username)
+            if save_info:
+                profile.full_name = billing_details.name
+                profile.save()
 
         order_exists = False
         attempt = 1
@@ -55,6 +64,7 @@ class StripeWH_Handler():
             try:
                 order = Order.objects.create(
                     full_name=billing_details.name,
+                    user_profile=profile,
                     email=billing_details.email,
                     original_tab=tab,
                     stripe_pid=pid,
