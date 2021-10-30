@@ -478,6 +478,11 @@ body {
     color:#2ECC71;
 }
 
+.order-confirmation {
+    max-width: 350px;
+    margin: 0 auto;
+}
+
 /* ----- Item Form ----- */
 
 .btn-file {
