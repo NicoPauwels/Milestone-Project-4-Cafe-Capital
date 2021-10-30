@@ -11,7 +11,7 @@ import json
 import time
 
 
-class StripeWH_Handler():
+class StripeWH_Handler:
     """ Handle Stripe webhooks """
 
     def __init__(self, request):
@@ -73,7 +73,7 @@ class StripeWH_Handler():
                 order_exists = True
                 break
             except Order.DoesNotExist:
-                attempt +=1
+                attempt += 1
                 time.sleep(1)
         if order_exists:
             self._send_confirmation_email(order)
