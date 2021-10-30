@@ -219,9 +219,9 @@
                         <div class="col-12 col-md-4 mb-4 ">
                             <a href="{% url 'menu_item' item.id %}" class="item-link">
                             <div class="menu-item">
-                                <p class="menu-name">{{ item.name }}</p>
+                                <p class="menu-name text-black">{{ item.name }}</p>
                                 <p class="menu-description">{{ item.description }}</p>
-                                <p class="menu-price">{{ item.price }} EUR</p>
+                                <p class="menu-price text-black">{{ item.price }} EUR</p>
                                 <img class="menu-image" src="{{ item.image.url }}" alt="{{ item.name }}">
                             </div>
                             </a>
